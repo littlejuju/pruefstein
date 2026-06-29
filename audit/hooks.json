@@ -1,0 +1,15 @@
+{
+  "comment": "Stop-hook enforcement for the biz-feasibility audit layer. Fires when the main agent tries to end its turn; audit_gate.py exits 2 (holds the turn open) if there is a pending audit whose deterministic decision is BLOCK. SubagentStop is intentionally NOT used — it cannot block the parent agent (verified 2026-06-29).",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PLUGIN_ROOT/hooks/audit_gate.py\""
+          }
+        ]
+      }
+    ]
+  }
+}

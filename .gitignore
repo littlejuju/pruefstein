@@ -1,0 +1,6 @@
+# nothing private should ever live here, but just in case
+*.log
+.DS_Store
+/tmp/
+*_report*.md
+*_final.txt
