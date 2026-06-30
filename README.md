@@ -25,6 +25,11 @@
 - **KILL** — can't even clear cash (chronic bleed) or structurally doesn't stand up → don't / exit. / 连现金都清不掉或结构性死 → 别做 / 退出。
 - **CONDITIONAL** — an untested swing variable routes to one of the above → run the cheapest falsification test first. / 有个没测的关键变量 → 先跑最便宜的证伪测试。
 
+### See it in action / 看一份完整裁决
+
+A full, de-identified verdict on a real idea (a paid expert-advice / coffee-chat marketplace) → [`examples/case-study-expert-advice-marketplace.md`](./examples/case-study-expert-advice-marketplace.md).
+一份对真实点子的完整去标识化裁决（付费专家建议 / coffee-chat 市场）见上方链接。
+
 ---
 
 # Deploy / 部署
