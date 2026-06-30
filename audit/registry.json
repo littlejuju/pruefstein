@@ -21,7 +21,7 @@
      "must_not": "DO NOT hard-KILL the whole idea; the positive sub-object survives (don't-false-kill guard)",
      "proved_by": ["A9", "S16", "B08"]},
     {"id": "GATE_NARRATION_DEANON_CONTAMINATION", "tier": "P0", "block_when": "fail_or_unresolved",
-     "fires_when": "report names an isolation gate / 'tool-owner' / cross-case sub-gate (even in negated form e.g. '已排除某案外私有方向X方向'), OR un-redacts a de-identified value, OR imports another case's entity/direction",
+     "fires_when": "report names an isolation gate / 'prior-case owner' / cross-case sub-gate (even in negated form e.g. '已排除某案外私有方向X方向'), OR un-redacts a de-identified value, OR imports another case's entity/direction",
      "fix": "delete the gate-narration / imported entity entirely; gates run silently",
      "proved_by": ["v3.14-fix", "S11-v3.13-leak", "B08-v3.13-leak"]},
     {"id": "LEGAL_OVERCLAIM_AS_FINAL", "tier": "P0", "block_when": "fail_or_unresolved",
