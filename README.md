@@ -39,7 +39,11 @@ Then type `/biz-feasibility` or just pitch a venture — it auto-triggers, asks 
 
 **2 · The audit layer (optional but recommended).** Two ways to wire it:
 
-- **As a plugin (auto-enforced)** — the sibling repo packages the skill + a **`Stop` hook** that won't let a turn end until an *independent* auditor + the deterministic finalizer clear the verdict. Loading the plugin *is* the install; nothing to edit. (See the `biz-feasibility-plugin`.)
+- **As a plugin (auto-enforced)** — the sibling repo [`littlejuju/pruefstein-plugin`](https://github.com/littlejuju/pruefstein-plugin) packages the skill + a **`Stop` hook** that won't let a turn end until an *independent* auditor + the deterministic finalizer clear the verdict. Loading the plugin *is* the install; nothing to edit:
+  ```
+  /plugin marketplace add littlejuju/pruefstein-plugin
+  /plugin install biz-feasibility@pruefstein-plugin
+  ```
 - **Manually (this repo's `audit/`)** — add a `Stop` hook in `~/.claude/settings.json` pointing at `audit/audit_gate.py` (see `audit/hooks.json` for the exact shape). On every turn-end the gate checks whether a real verdict was emitted and, if so, requires a fresh independent audit:
   1. A clean **auditor subagent** (system prompt = `audit/auditor.md`) reads **only** the report + its brief — never the generation reasoning — and writes a per-check JSON verdict to `.bizfeas/pending_audit.json` (stamped with the report's hash).
   2. **`audit/finalizer.js`** recomputes `OK | BLOCK_UNRESOLVED` from that JSON by the registry's routing rules — it does **not** trust the auditor's own proposed verdict, and ignores any self-stamped "AUDIT_OK".
@@ -57,7 +61,11 @@ git clone https://github.com/littlejuju/pruefstein.git ~/.claude/skills/biz-feas
 
 **2 · 审计层（可选但推荐）。** 两种接法：
 
-- **作为 plugin（自动强制）**——配套的 plugin 仓把 skill + 一个 **`Stop` hook** 打包：未经**独立**审计员 + 确定性裁决器放行，这一轮就结束不了。装上 plugin = 装上强制，无需改配置。（见 `biz-feasibility-plugin`。）
+- **作为 plugin（自动强制）**——配套的 plugin 仓 [`littlejuju/pruefstein-plugin`](https://github.com/littlejuju/pruefstein-plugin) 把 skill + 一个 **`Stop` hook** 打包：未经**独立**审计员 + 确定性裁决器放行，这一轮就结束不了。装上 plugin = 装上强制，无需改配置：
+  ```
+  /plugin marketplace add littlejuju/pruefstein-plugin
+  /plugin install biz-feasibility@pruefstein-plugin
+  ```
 - **手动接（用本仓 `audit/`）**——在 `~/.claude/settings.json` 加一个 `Stop` hook 指向 `audit/audit_gate.py`（确切写法见 `audit/hooks.json`）。每轮结束时闸检查是否产出了真裁决，若是则要求一份**新鲜的独立审计**：
   1. 一个干净的**审计员子代理**（system prompt = `audit/auditor.md`）**只**看报告 + brief，**绝不**看生成推理，逐条 check 出 JSON 裁决，写到 `.bizfeas/pending_audit.json`（带报告哈希）。
   2. **`audit/finalizer.js`** 按注册表的路由规则从那份 JSON **重算** `OK | BLOCK_UNRESOLVED`——**不信**审计员自己提议的裁决，也忽略任何自盖的「AUDIT_OK」。
