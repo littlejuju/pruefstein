@@ -4,3 +4,6 @@
 /tmp/
 *_report*.md
 *_final.txt
+
+# local audit working state (never ship)
+.bizfeas/

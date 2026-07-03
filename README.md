@@ -27,8 +27,8 @@
 
 ### See it in action / 看一份完整裁决
 
-A full, de-identified verdict on a real idea (a paid expert-advice / coffee-chat marketplace) → [`examples/case-study-expert-advice-marketplace.md`](./examples/case-study-expert-advice-marketplace.md).
-一份对真实点子的完整去标识化裁决（付费专家建议 / coffee-chat 市场）见上方链接。
+A full, de-identified, **audit-cleared** verdict on a real idea (a "question-first" professional exploration network in Singapore) → [`examples/case-study-question-first-professional-network.md`](./examples/case-study-question-first-professional-network.md). It carries a real sourced fact wall (market, live + dead competitors, survivor playbooks, regulation), a claim ledger, and passed the independent auditor + finalizer.
+一份对真实点子的完整去标识化、**且通过独立审计**的裁决（新加坡「以问题为起点」的专业探索网络）见上方链接：含真实带源 fact 墙、claim ledger，并通过独立审计员 + 裁决器。
 
 ---
 
